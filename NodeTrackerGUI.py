@@ -1,4 +1,6 @@
+from TestCommands import *
 import wx
+
 
 class MyApp(wx.App):
     def __init__(self):
@@ -40,6 +42,7 @@ class MyPanel(wx.Panel):
             #add an action
         print("Thanks for submitting information")
         submitThanks = wx.StaticText(self, label = "Node Information Submitted", pos = (220, 280))
+        PrintStuff()
 
 if __name__ == "__main__":
     app = MyApp()
