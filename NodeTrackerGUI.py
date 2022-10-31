@@ -1,6 +1,6 @@
 from TestCommands import *
 import wx
-
+import time
 
 class MyApp(wx.App):
     def __init__(self):
@@ -34,15 +34,23 @@ class MyPanel(wx.Panel):
         fw = wx.StaticText(self, label="FW Version", pos=(25, 100))
         tech = wx.StaticText(self, label="Tech", pos=(200, 100))
 
-        #add buttons
+        # add buttons
         button = wx.Button(parent=self, label = "Submit", pos = (250, 250))
         button.Bind(event=wx.EVT_BUTTON, handler=self.onSubmit)
+
+        # add text box
+        self._textbox = wx.TextCtrl(parent=self, value = "Serial #", pos = (20, 40))
 
     def onSubmit(self, event):
             #add an action
         print("Thanks for submitting information")
-        submitThanks = wx.StaticText(self, label = "Node Information Submitted", pos = (220, 280))
-        PrintStuff()
+        serNum = self._textbox.GetValue()
+        print (serNum)
+
+
+        submitThanks = wx.StaticText(self, label="Node Information Submitted", pos=(220, 280))
+
+
 
 if __name__ == "__main__":
     app = MyApp()
